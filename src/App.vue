@@ -1,11 +1,30 @@
 <template>
-  <h1>Hi everyone</h1>
-  <h2>I'm Yilong Ma</h2>
+  <MainScreen
+    v-if="statusMatch === 'default'"
+    @onStart="onHandleBeforeStart($event)"
+  />
+  <InteractScreen v-if="statusMatch === 'match'" />
 </template>
 
 <script>
+import MainScreen from "@/components/MainScreen.vue";
+import InteractScreen from "@/components/InteractScreen.vue";
+// import ResultScreen from "@/components/ResultScreen.vue";
+// import CopyrightScreen from "@/components/CopyrightScreen.vue";
 export default {
   name: "App",
+  data() {
+    return {
+      statusMatch: "default",
+    };
+  },
+  methods: {
+    onHandleBeforeStart(config) {
+      console.log("running handle before start", config);
+      this.statusMatch = "match";
+    },
+  },
+  components: { MainScreen, InteractScreen },
 };
 </script>
 
