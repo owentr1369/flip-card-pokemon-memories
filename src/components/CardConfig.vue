@@ -9,13 +9,24 @@
         <div class="card__content">Front</div>
       </div>
       <div class="card__face card__face--back">
-        <div class="card__content">Back</div>
+        <div
+          class="card__content"
+          :style="{
+            backgroundImage: `url(${require('@/assets/' + imgBackFaceUrl)})`,
+          }"
+        ></div>
       </div>
     </div>
   </div>
 </template>
 <script>
 export default {
+  props: {
+    imgBackFaceUrl: {
+      type: String,
+      required: true,
+    },
+  },
   data() {
     return {
       isFlipped: false,
@@ -60,5 +71,18 @@ export default {
 .card__face--back {
   background-color: var(--light);
   transform: rotateY(-180deg);
+}
+.card__face .card__content {
+  background: url("../assets/images/icon_back.png") no-repeat center center;
+  height: 100%;
+  widows: 100%;
+  background-size: 34px 34px;
+}
+.card__face--back .card__content {
+  background-position: center center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  height: 100%;
+  width: 100%;
 }
 </style>
