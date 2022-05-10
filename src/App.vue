@@ -1,5 +1,6 @@
 <template>
-  <h1>Hello</h1>
+  <h1>Hi everyone</h1>
+  <h2>I'm Yilong Ma</h2>
 </template>
 
 <script>
