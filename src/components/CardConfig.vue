@@ -6,7 +6,7 @@
       :class="{ 'is-flipped': isFlipped }"
     >
       <div class="card__face card__face--front">
-        <div class="card__content">Front</div>
+        <div class="card__content"></div>
       </div>
       <div class="card__face card__face--back">
         <div
@@ -22,6 +22,9 @@
 <script>
 export default {
   props: {
+    card: {
+      type: [String, Number, Array, Object],
+    },
     imgBackFaceUrl: {
       type: String,
       required: true,
@@ -35,6 +38,10 @@ export default {
   methods: {
     onToggleFlipCard() {
       this.isFlipped = !this.isFlipped;
+      if (this.isFlipped) this.$emit("onFlip", this.card);
+    },
+    onFlipBackCard() {
+      this.isFlipped = false;
     },
   },
 };
