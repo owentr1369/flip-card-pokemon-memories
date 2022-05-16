@@ -44,6 +44,18 @@ export default {
         this.$refs[`card-${this.rules[1].index}`][0].onDisabledMode();
         // Reset rules to []
         this.rules = [];
+
+        const disabledElements = document.querySelectorAll(
+          ".screen .card.disabled"
+        );
+        if (
+          disabledElements &&
+          disabledElements.length === this.cardContext.length - 2
+        ) {
+          setTimeout(() => {
+            this.$emit("onFinish");
+          }, 1000);
+        }
       } else if (
         this.rules.length === 2 &&
         this.rules[0].value !== this.rules[1].value
@@ -57,7 +69,7 @@ export default {
 
           // Reset rules to []
           this.rules = [];
-        }, 1000);
+        }, 700);
       } else {
         return false;
       }
