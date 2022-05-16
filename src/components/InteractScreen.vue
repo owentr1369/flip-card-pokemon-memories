@@ -45,14 +45,15 @@ export default {
         this.rules[0].value !== this.rules[1].value
       ) {
         console.log("wrong");
+        setTimeout(() => {
+          // Close 2 card
+          this.$refs[`card-${this.rules[0].index}`][0].onFlipBackCard();
+          this.$refs[`card-${this.rules[1].index}`][0].onFlipBackCard();
+          // console.log(this.$refs[`card-${this.rules[0].index}`][0]);
 
-        // Close 2 card
-        this.$refs[`card-${this.rules[0].index}`][0].onFlipBackCard();
-        this.$refs[`card-${this.rules[1].index}`][0].onFlipBackCard();
-        // console.log(this.$refs[`card-${this.rules[0].index}`][0]);
-
-        // Reset rules to []
-        this.rules = [];
+          // Reset rules to []
+          this.rules = [];
+        }, 1000);
       } else {
         return false;
       }
