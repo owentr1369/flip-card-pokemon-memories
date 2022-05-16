@@ -21,6 +21,7 @@
 </template>
 <script>
 export default {
+  name: "CardFlip",
   props: {
     card: {
       type: [String, Number, Array, Object],

@@ -6,7 +6,7 @@
       :key="index"
       :ref="`card-${index}`"
       :imgBackFaceUrl="`images/${card}.png`"
-      :card="{ index: index, value: card }"
+      :card="{ index, value: card }"
       @onFlip="checkRule($event)"
     />
   </div>
@@ -47,11 +47,12 @@ export default {
         console.log("wrong");
 
         // Close 2 card
-        // this.$refs[`card-11`].onFlipBackCard();
-        // this.$refs[`card-${this.rules[1].index}`].onFlipBackCard();
-        console.log(this.$refs[`card-11`].onFlipBackCard());
+        this.$refs[`card-${this.rules[0].index}`][0].onFlipBackCard();
+        this.$refs[`card-${this.rules[1].index}`][0].onFlipBackCard();
+        // console.log(this.$refs[`card-${this.rules[0].index}`][0]);
+
         // Reset rules to []
-        // this.rules = [];
+        this.rules = [];
       } else {
         return false;
       }
