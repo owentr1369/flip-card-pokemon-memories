@@ -1,7 +1,27 @@
 <template>
-  <p>Original design by RHP Team</p>
-  <p>
-    Developed by
-    <a href="https://www.facebook.com/tam.tran.136">Tran Tam</a>
-  </p>
+  <div class="copyright">
+    <p>Original design by RHP Team</p>
+    <p>
+      Developed by
+      <a href="https://www.facebook.com/tam.tran.136" target="_blank"
+        >Tran Tam</a
+      >
+    </p>
+  </div>
 </template>
+
+<style lang="css" scoped>
+.copyright {
+  position: fixed;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 1.5rem;
+  color: var(--light);
+  z-index: 3;
+  font-size: 1.5rem;
+  text-align: center;
+}
+.copyright a {
+  color: #f4dc26;
+}
+</style>

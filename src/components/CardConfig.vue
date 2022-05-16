@@ -1,5 +1,17 @@
 <template>
-  <div class="card" :class="{ disabled: isDisabled }">
+  <div
+    class="card"
+    :class="{ disabled: isDisabled }"
+    :style="{
+      height: `${(920 - 16 * 4) / Math.sqrt(cardContext.length) - 16}px`,
+      width: `${
+        (((920 - 16 * 4) / Math.sqrt(cardContext.length) - 16) * 3) / 4
+      }px`,
+      perspective: `${
+        ((((920 - 16 * 4) / Math.sqrt(cardContext.length) - 16) * 3) / 4) * 2
+      }px`,
+    }"
+  >
     <div
       class="card__inner"
       @click="onToggleFlipCard"
@@ -30,6 +42,12 @@ export default {
       type: String,
       required: true,
     },
+    cardContext: {
+      type: Array,
+      default: function () {
+        return [];
+      },
+    },
   },
   data() {
     return {
@@ -57,8 +75,6 @@ export default {
   display: inline-block;
   margin-right: 1rem;
   margin-bottom: 1rem;
-  width: 90px;
-  height: 120px;
 }
 .card__inner {
   width: 100%;

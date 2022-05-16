@@ -13,18 +13,20 @@
     :timer="timer"
     @onStartAgain="statusMatch = 'default'"
   />
+  <CopyrightScreen />
 </template>
 
 <script>
 import MainScreen from "@/components/MainScreen.vue";
 import InteractScreen from "@/components/InteractScreen.vue";
 import ResultScreen from "@/components/ResultScreen.vue";
+import CopyrightScreen from "@/components/CopyrightSceen.vue";
 import { shuffled } from "@/utils/array";
 // import ResultScreen from "@/components/ResultScreen.vue";
 // import CopyrightScreen from "@/components/CopyrightScreen.vue";
 export default {
   name: "App",
-  components: { MainScreen, InteractScreen, ResultScreen },
+  components: { MainScreen, InteractScreen, ResultScreen, CopyrightScreen },
   data() {
     return {
       settings: {
