@@ -1,5 +1,5 @@
 <template>
-  <div class="card">
+  <div class="card" :class="{ disabled: isDisabled }">
     <div
       class="card__inner"
       @click="onToggleFlipCard"
@@ -34,15 +34,20 @@ export default {
   data() {
     return {
       isFlipped: false,
+      isDisabled: false,
     };
   },
   methods: {
     onToggleFlipCard() {
+      if (this.isDisabled) return false;
       this.isFlipped = !this.isFlipped;
       if (this.isFlipped) this.$emit("onFlip", this.card);
     },
     onFlipBackCard() {
       this.isFlipped = false;
+    },
+    onDisabledMode() {
+      this.isDisabled = true;
     },
   },
 };
@@ -62,6 +67,9 @@ export default {
   transform-style: preserve-3d;
   cursor: pointer;
   position: relative;
+}
+.card.disabled .card__inner {
+  cursor: default;
 }
 .card__inner.is-flipped {
   transform: rotateY(-180deg);

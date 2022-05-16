@@ -39,6 +39,10 @@ export default {
         this.rules[0].value === this.rules[1].value
       ) {
         console.log("right");
+        // add class 'disabled' to component card
+        this.$refs[`card-${this.rules[0].index}`][0].onDisabledMode();
+        this.$refs[`card-${this.rules[1].index}`][0].onDisabledMode();
+        // Reset rules to []
         this.rules = [];
       } else if (
         this.rules.length === 2 &&
