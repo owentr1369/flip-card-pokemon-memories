@@ -35,18 +35,18 @@
 export default {
   name: "CardFlip",
   props: {
+    cardContext: {
+      type: Array,
+      default: function () {
+        return [];
+      },
+    },
     card: {
       type: [String, Number, Array, Object],
     },
     imgBackFaceUrl: {
       type: String,
       required: true,
-    },
-    cardContext: {
-      type: Array,
-      default: function () {
-        return [];
-      },
     },
   },
   data() {

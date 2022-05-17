@@ -1,8 +1,7 @@
 <template>
   <div class="copyright">
-    <p>Original design by RHP Team</p>
     <p>
-      Developed by
+      Original design by RHP Team - Developed by
       <a href="https://www.facebook.com/tam.tran.136" target="_blank"
         >Tran Tam</a
       >
@@ -15,10 +14,10 @@
   position: fixed;
   left: 50%;
   transform: translateX(-50%);
-  bottom: 1.5rem;
+  bottom: 1rem;
   color: var(--light);
   z-index: 3;
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   text-align: center;
 }
 .copyright a {
